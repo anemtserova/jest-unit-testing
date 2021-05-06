@@ -1,4 +1,7 @@
 const { sum } = require('./app.js');
+const {fromDollarToYen} = require("./app.js");
+const {fromYenToPound} = require("./app.js");
+const { fromEuroToDollar } = require('./app.js')
 
 
 test('adds 14 + 9 to equals 23', () => {
@@ -9,7 +12,7 @@ test('adds 14 + 9 to equals 23', () => {
 
 test("One euro should be 1.206 dollars", function(){
     //import the function from app.js
-    const { fromEuroToDollar } = require('./app.js')
+    
 
     // use the function like its suppoed to be used
     const dollars = fromEuroToDollar(3.5)
@@ -21,15 +24,15 @@ test("One euro should be 1.206 dollars", function(){
     expect(expected).toBe(dollars);
 })
 
-test("One dollar should be 106.58333333333335 yen", function() {
-    const {fromDollarToYen} = require("./app.js");
-    const yen = fromDollarToYen(10);
-    const expected = 10*106.58333333333335;
+test("One dollar should be 106.58 yen", () => {
+    
+    const yen = fromDollarToYen(fromEuroToDollar(1));
+    const expected = 1*127.9;
     expect(expected).toBe(yen);
 })
-test("One yen should be 0.006254886630179828 pounds", function() {
-    const {fromYenToPound} = require("./app.js");
-    const pounds = fromYenToPound(1000);
-    const expected = 1000*0.006254886630179828;
+test("One yen should be 0.00625 pounds", () => {
+    
+    const pounds = fromYenToPound(fromDollarToYen(fromEuroToDollar(1)));
+    const expected = 1*0.8;
     expect(expected).toBe(pounds);
 })

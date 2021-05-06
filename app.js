@@ -13,14 +13,22 @@ let oneEuroIs = {
 const fromEuroToDollar = (euro) => {
     return euro*oneEuroIs['USD'];
 }
+
+console.log(fromEuroToDollar(1));
+
 const fromDollarToYen = (dollar) => {
-    let toEuro = dollar/oneEuroIs['USD'];
-    return toEuro*oneEuroIs["JPY"];
+    let dollartoEuro = dollar/oneEuroIs['USD'];
+    return dollartoEuro*oneEuroIs["JPY"];
 }
+
+console.log(fromDollarToYen(1));
+
 const fromYenToPound = (yen) => {
-    let toEuro = yen/oneEuroIs['JPY'];
-    return toEuro*oneEuroIs["GBP"];
+    let yentoEuro = yen/oneEuroIs['JPY'];
+    return yentoEuro*oneEuroIs["GBP"];
 }
+
+console.log(fromYenToPound(1));
 
 
 module.exports = {sum, fromEuroToDollar, fromDollarToYen, fromYenToPound};
